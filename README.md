@@ -66,8 +66,8 @@ Create an Application for the MLFlow UI.
 Give it a name, subdomain (it will be accessible at `subdomain.cdsw.whatever.com`) and point it at the `ui.py` script.
 The script uses the `CDSW_READONLY_PORT` environment variable, so there should be no additional config needed there.
 
-[image of app set up]
+![MLFlow Application setup](images/mlflow-demo-application.png)
 
 Now, navigate to the subdomain you specified, and you should see the results of our earlier runs.
 
-[image of UI]
+![The MLFlow UI](images/mlflow-demo-ui.png)
