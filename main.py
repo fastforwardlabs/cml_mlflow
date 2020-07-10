@@ -19,7 +19,6 @@ n_data = 64
 input_dim = 1000
 output_dim = 10
 
-
 x = torch.randn(n_data, input_dim)
 y = torch.randn(n_data, output_dim)
 
@@ -33,7 +32,6 @@ model = torch.nn.Sequential(
   torch.nn.ReLU(),
   torch.nn.Linear(hidden_dim, output_dim)
 )
-
 
 
 # Define some loss functions
@@ -55,29 +53,29 @@ opt = torch.optim.SGD(model.parameters(), lr = lr)
 mlflow.set_experiment('demo')
 
 with mlflow.start_run():
-  
+
   # Log some parameters valid for the whole run
   mlflow.log_params({
     'lr': lr,
     'hidden_dim': hidden_dim
   })
-  
+
   for epoch in range(100):
     predictions = model(x)
     mse_loss = mse(predictions, y)
     l1_loss = l1(predictions, y)
-    
+
     # Log metrics for each epoch of the run
     mlflow.log_metrics({
       'mse_loss': mse_loss.item(),
       'l1_loss': l1_loss.item()
     }, step=epoch)
-    
+
     opt.zero_grad()
     mse_loss.backward() # choose mse as optimization target
     opt.step()
-    
-    
+
+
   # save the model artefact
   mlflow.pytorch.log_model(model, 'model')
 
