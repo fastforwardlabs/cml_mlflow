@@ -11,7 +11,7 @@ This repo is a small demonstration of how to set up a minimum version of that, o
 
 ## MLFlow in 60 seconds
 
-MLFlow tracks has three important concepts:
+This repo is only concerned with the tracking component of MLFlow. There are three important concepts:
 * `experiments` - these group together runs. Different experiments appear as different tabs in the UI.
 * `params` - params are things you _set_ for a training run. For instance, the learning rate for stochastic gradient descent.
 * `metrics` - metrics are things that are _computed_ during a training run. They can be one per run, or one per algorithm step. For example, the loss for each epoch while training a neural network would be a metric.
