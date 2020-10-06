@@ -40,7 +40,7 @@ mse = torch.nn.MSELoss()
 l1 = torch.nn.L1Loss()
 
 
-# Define an opitimizer
+# Define an optimizer
 
 lr = args.lr
 
